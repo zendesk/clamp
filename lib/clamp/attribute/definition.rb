@@ -14,9 +14,10 @@ module Clamp
         @default_value = options[:default] if options.key?(:default)
         @environment_variable = options[:environment_variable] if options.key?(:environment_variable)
         @hidden = options[:hidden] if options.key?(:hidden)
+        @subheading = options[:subheading] if options.key?(:subheading)
       end
 
-      attr_reader :description, :environment_variable
+      attr_reader :description, :environment_variable, :subheading
 
       def help_rhs
         rhs = description

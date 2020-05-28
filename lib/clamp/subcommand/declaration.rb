@@ -14,10 +14,10 @@ module Clamp
         @recognised_subcommands ||= []
       end
 
-      def subcommand(name, description, subcommand_class = self, &block)
+      def subcommand(name, description, subcommand_class = self, subheading: nil, &block)
         subcommand_class = Class.new(subcommand_class, &block) if block
         declare_subcommand_parameters unless has_subcommands?
-        recognised_subcommands << Subcommand::Definition.new(name, description, subcommand_class)
+        recognised_subcommands << Subcommand::Definition.new(name, description, subcommand_class, subheading)
       end
 
       def has_subcommands?
